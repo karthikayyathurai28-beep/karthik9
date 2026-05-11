@@ -3,21 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABS Doors | Trichy Wood Plast</title>
+    <title>Gallery | Trichy Wood Plast - Premium Door & Interior Designs</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore our extensive gallery of uPVC Doors, WPC Doors, TV Units, and Modular Kitchen designs. Get inspiration for your home interior with Trichy Wood Plast's premium projects.">
+    <meta name="keywords" content="Door Gallery, uPVC Door Designs, WPC Door Photos, Modular Kitchen Gallery, TV Unit Designs Tamil Nadu, Trichy Wood Plast Showcase">
+    
+    <!-- GEO Tags -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Tiruchirappalli">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Project Gallery | Trichy Wood Plast">
+    <meta property="og:description" content="View our latest projects and premium door designs across Tamil Nadu.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo.png">
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .inner-hero {
-            width: 100%;
-            position: relative;
+        .gallery-page-container { padding: 40px 0 80px; }
+        .breadcrumbs { font-size: 0.85rem; color: #666; margin-bottom: 40px; }
+        .breadcrumbs a { color: #666; text-decoration: none; }
+        .breadcrumbs span { margin: 0 8px; }
+        .gallery-header { text-align: center; margin-bottom: 60px; }
+        .gallery-header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; color: #222; }
+        .gallery-header p { max-width: 900px; margin: 0 auto; color: #555; line-height: 1.6; font-size: 1rem; }
+        .gallery-content-flex { display: flex; gap: 40px; }
+        .gallery-sidebar {
+            width: 280px;
+            flex-shrink: 0;
             background: #fff;
-            overflow: hidden;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .hero-img-full {
-            width: 100%;
-            height: auto;
+        .filter-group { margin-bottom: 35px; }
+        .filter-group h4 {
+            font-size: 0.9rem;
+            color: #2a3a6a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .filter-options { display: flex; flex-wrap: wrap; gap: 10px; }
+        .filter-item {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #000;
+            background: #fff;
+            color: #000;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .filter-item input { display: none; }
+        .filter-item:hover { background: #f0f0f0; }
+        .filter-item.active { background: #000; color: #fff; }
+        
+        .gallery-main { flex-grow: 1; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .gallery-card {
+            background: #fff;
+            transition: all 0.4s ease;
             display: block;
+        }
+        .gallery-card.hidden { display: none; }
+        
+        .gallery-card .img-box {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-card:hover img { transform: scale(1.08); }
+        .gallery-card h3 { font-size: 0.9rem; color: #444; text-align: center; font-weight: 500; }
+        
+        .load-more-container { text-align: center; margin-top: 60px; margin-bottom: 80px; }
+        .btn-load-more {
+            background: #fff;
+            color: #000;
+            padding: 12px 50px;
+            border: 2px solid #000;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+        .btn-load-more:hover {
+            background: #000;
+            color: #fff;
+        }
+        .gallery-card.page-hidden { display: none; }
+
+        @media (max-width: 1200px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 992px) {
+            .gallery-content-flex { flex-direction: column; }
+            .gallery-sidebar { width: 100%; position: static; padding: 20px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            /* Mobile Filter Toggle */
+            .mobile-filter-btn {
+                display: flex !important;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 12px 20px;
+                background: #fff;
+                border: 2px solid #000;
+                border-radius: 4px;
+                font-weight: 700;
+                cursor: pointer;
+                margin-bottom: 15px;
+            }
+            .filter-options { display: none; padding-top: 15px; }
+            .filter-options.active { display: flex; }
+        }
+        .mobile-filter-btn { display: none; }
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-header h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -42,9 +169,7 @@
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                     <a href="#" class="btn-smart-view">Smart View</a>
-                    <div class="dial-info">
-                        DIAL : +91 98424 91555
-                    </div>
+                    <div class="dial-info">DIAL : +91 98424 91555</div>
                 </div>
             </div>
         </div>
@@ -54,14 +179,12 @@
         <div class="container-fluid">
             <div class="header-content">
                 <div class="logo-group">
-                    <a href="index.html" class="logo">
-                        <img src="logo.png" alt="Trichy Wood Plast Logo - Best uPVC & WPC Doors">
-                    </a>
+                    <a href="index.html" class="logo"><img src="logo.png" alt="Trichy Wood Plast Logo - Best uPVC & WPC Doors"></a>
                     <div class="header-left-icons">
                         <a href="index.html" class="home-icon-btn"><img src="https://img.icons8.com/material-rounded/20/ffffff/home.png" alt="Home"></a>
                         <a href="our-doors.html" class="nav-link-inline">OUR DOORS</a>
                         <div class="dropdown">
-                            <a href="#" class="nav-link-inline dropdown-toggle active">OUR PRODUCTS</a>
+                            <a href="#" class="nav-link-inline dropdown-toggle">OUR PRODUCTS</a>
                             <ul class="dropdown-menu">
                                 <li><a href="abs-doors.html">ABS DOORS</a></li>
                                 <li><a href="abs-design-doors.html">ABS DESIGN DOORS</a></li>
@@ -80,7 +203,7 @@
                                 <li><a href="living-room.html">Modern Living Room</a></li>
                             </ul>
                         </div>
-                        <a href="gallery.html" class="nav-link-inline">GALLERY</a><a href="about-us.html" class="nav-link-inline">ABOUT US</a>
+                        <a href="gallery.html" class="nav-link-inline active">GALLERY</a><a href="about-us.html" class="nav-link-inline">ABOUT US</a>
                         <div class="dropdown">
                             <a href="#" class="nav-link-inline dropdown-toggle">CITIES</a>
                             <ul class="dropdown-menu cities-dropdown">
@@ -150,7 +273,7 @@
                                 <li><a href="living-room.html">Modern Living Room</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="gallery.html">Gallery</a></li><li class="nav-item"><a href="about-us.html">About Us</a></li>
+                        <li class="nav-item active"><a href="gallery.html">Gallery</a></li><li class="nav-item"><a href="about-us.html">About Us</a></li>
                         <li class="nav-item dropdown">
                             <a href="#" class="dropdown-toggle">Cities</a>
                             <ul class="dropdown-menu">
@@ -207,216 +330,206 @@
     </header>
 
     <main>
-        <section class="inner-hero">
-            <img src="abs doors hero.png" alt="ABS Doors Hero" class="hero-img-full">
+        <section class="gallery-hero" style="width: 100%; margin-bottom: 40px;">
+            <img src="gallery hero.png" alt="Gallery Hero" style="width: 100%; display: block;">
         </section>
 
-        <section class="product-showcase reveal fade-bottom">
-            <div class="container">
-                <h2 class="product-intro-title">ABS DOORS</h2>
-                <p class="product-intro-p">
-                    Trichy Wood Plast understands the importance of balancing the natural resources that mankind has utilized in building things, often at the expense of nature as a whole. We believe in providing an eco-friendly alternative for mankind to continue its progress without hurting Mother Nature. Our ABS Door is one of the finest attempts to move a step ahead in the direction of our vision.
-                </p>
+        <div class="container">
+            <div class="breadcrumbs"><a href="index.html">Home</a> <span>Â»</span> Showcase <span>Â»</span> Gallery</div>
+            <section class="gallery-header">
+                <h1>Gallery</h1>
+                <p>Browse through our extensive gallery of projects and products. Filter by category to find inspiration for your next project.</p>
+            </section>
 
-                <div class="showcase-grid">
-                    <!-- Door 1 -->
-                    <div class="showcase-card">
-                        <img src="ooo1.jpg" alt="Glossy Doors">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>Glossy Doors</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
+            <div class="gallery-content-flex">
+                <aside class="gallery-sidebar">
+                    <div class="filter-group">
+                        <button class="mobile-filter-btn" id="mobile-filter-toggle">
+                            <span>FILTER BY CATEGORY</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="filter-options" id="filter-options">
+                            <label class="filter-item">
+                                <input type="checkbox" class="cat-filter" value="doors"> Doors
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" class="cat-filter" value="tv-units"> TV Units
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" class="cat-filter" value="modular-kitchen"> Modular Kitchen
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" class="cat-filter" value="wardrobe"> Wardrobe
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" class="cat-filter" value="living-room"> Modern Living Room
+                            </label>
                         </div>
                     </div>
+                </aside>
 
-                    <!-- Door 2 -->
-                    <div class="showcase-card">
-                        <img src="ooo2.jpg" alt="ABS Design Door">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>ABS Premium Door</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
-                        </div>
+                <div class="gallery-main">
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Content will be injected via script -->
                     </div>
-
-                    <!-- Door 3 -->
-                    <div class="showcase-card">
-                        <img src="ooo3.jpg" alt="ABS Texture">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>Textured ABS Door</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
-                        </div>
-                    </div>
-
-                    <!-- Door 4 -->
-                    <div class="showcase-card">
-                        <img src="ooo4.jpg" alt="FMD Door">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>Solid ABS Door</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
-                        </div>
+                    <div class="load-more-container">
+                        <button class="btn-load-more" id="load-more">LOAD MORE</button>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section class="product-details-content reveal fade-bottom">
-            <div class="container">
-                <h2>Trichy Wood Plast is a Leading Manufacturer of ABS Doors</h2>
-                <p>
-                    Trichy Wood Plast is a renowned ABS Doors manufacturer, offering a wide selection of premium ABS doors for residential and commercial use. With over 15+ years of experience in this industry, our products are known for their high-grade quality and craftsmanship. Trichy Wood Plast is dedicated to providing durable, secure, and stylish ABS doors that can enhance any home or business. Whether you're looking for a common entry door or a custom-designed one, Trichy Wood Plast has the perfect solution for you.
-                </p>
-
-                <h3>We Promise to Meet Your Needs</h3>
-                <p>
-                    At Trichy Wood Plast, we understand that you have specific requirements for your ABS doors. That's why we attempt to provide you with the highest quality product at competitive prices. We offer a wide range of alternatives to meet your needs, from contemporary to traditional designs, from modern colors to classic looks.
-                </p>
-                <p>
-                    Our experienced professionals can help you in selecting the best door for your project. With years of experience in the ABS door industry, we can help you get the exact product that meets your needs and budget.
-                </p>
-                <p>
-                    We stand behind our products with our 100% customer satisfaction guarantee. Our staff is focused on providing excellent customer service and timely delivery. We look forward to offering you the perfect ABS door solution.
-                </p>
-
-                <h3>Choose your Desired Design & Color, and Rest is on us</h3>
-                <p>
-                    We offer an extensive range of ABS door designs and colors. You have a huge variety to choose from a range of colors & designs. Once you have chosen your desired design and color, our team will take proper care of the rest. Our expert technicians will take precise measurements and make sure that your door fits perfectly in its place.
-                </p>
-                <p>
-                    Sustainability is at the core of our manufacturing process. Our ABS doors are designed with environmental responsibility in mind, utilizing recyclable materials and processes that minimize waste. By choosing our ABS solutions, you are not only investing in a premium product but also contributing to a greener future. We believe that modern construction should go hand-in-hand with ecological preservation.
-                </p>
-                <p>
-                    Beyond the initial installation, our doors provide exceptional long-term value. Traditional wooden doors often require regular sanding, painting, and chemical treatments to prevent decay. Our ABS doors, however, remain pristine for decades with almost zero maintenance. This durability translates to significant cost savings over time, making them a smart financial investment for any property owner.
-                </p>
-                <p>Experience the difference with premium ABS Doors from Trichy Wood Plast and let us help you create a stylish and secure space.</p>
-            </div>
-        </section>
+        </div>
     </main>
 
-        <footer class="main-footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-col about-col">
                     <img src="logo.png" alt="Trichy Wood Plast Logo - Best uPVC & WPC Doors" class="footer-logo">
-                    <p>At Trichy Wood Plast, we bring together innovation, durability, and modern craftsmanship to create premium-quality doors that elevate every space. Specialize in manufacturing stylish and long-lasting WPC doors.</p>
-                    <div class="social-links">
-                        <a href="#"><img src="https://img.icons8.com/ios-filled/20/ffffff/facebook-new.png" alt="FB"></a>
-                        <a href="#"><img src="https://img.icons8.com/ios-filled/20/ffffff/instagram-new.png" alt="IG"></a>
-                        <a href="#"><img src="https://img.icons8.com/ios-filled/20/ffffff/twitter.png" alt="TW"></a>
-                        <a href="#"><img src="https://img.icons8.com/ios-filled/20/ffffff/linkedin.png" alt="LN"></a>
-                    </div>
+                    <p>At Trichy Wood Plast, we bring together innovation and durability to create premium-quality doors.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="our-doors.html">Our Doors</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Catalogue</a></li>
-                        <li><a href="#">News & Media</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Our Products</h4>
-                    <ul>
-                        <li><a href="abs-doors.html">ABS Doors</a></li>
-                        <li><a href="abs-design-doors.html">ABS Design Doors</a></li>
-                        <li><a href="wpc-doors.html">WPC Doors</a></li>
-                        <li><a href="pvc-moulded-doors.html">PVC Moulded Doors</a></li>
-                        <li><a href="pvc-solid-doors.html">PVC Solid Doors</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contact Us</h4>
                     <ul class="contact-info">
-                        <li>
-                            <img src="https://img.icons8.com/material-rounded/18/ffffff/marker.png" alt="Map">
-                            <span>11/235, Muthiah Street, Veerama Nagar, Ayyan Puthur, OFT Main Road, Gundur (Po), Trichy - 620 007.</span>
-                        </li>
-                        <li>
-                            <img src="https://img.icons8.com/material-rounded/18/ffffff/phone.png" alt="Phone">
-                            <span>+91 98424 91555</span>
-                        </li>
-                        <li>
-                            <img src="https://img.icons8.com/material-rounded/18/ffffff/mail.png" alt="Email">
-                            <span>trichywoodplast@gmail.com</span>
-                        </li>
+                        <li><img src="https://img.icons8.com/material-rounded/18/ffffff/marker.png" alt="Map"><span>11/235, Muthiah Street, Veerama Nagar, Ayyan Puthur, OFT Main Road, Gundur (Po), Trichy - 620 007.</span></li>
+                        <li><img src="https://img.icons8.com/material-rounded/18/ffffff/phone.png" alt="Phone"><span>+91 98424 91555</span></li>
+                        <li><img src="https://img.icons8.com/material-rounded/18/ffffff/mail.png" alt="Mail"><span>trichywoodplast@gmail.com</span></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Trichy Wood Plast. All Rights Reserved. Designed for Excellence.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Trichy Wood Plast. All Rights Reserved.</p></div>
         </div>
     </footer>
 
     <script>
+        const grid = document.getElementById('gallery-grid');
+        const loadMoreBtn = document.getElementById('load-more');
+        let currentLimit = 20;
+
+        const categories = {
+            'doors': { count: 55, prefix: 'image ', ext: 'jpg', label: 'Premium Door' },
+            'tv-units': { count: 15, prefix: 'line1img', ext: 'png', label: 'TV Unit' },
+            'modular-kitchen': { count: 25, prefix: 'line2img', ext: 'png', label: 'Modular Kitchen' },
+            'wardrobe': { count: 25, prefix: 'line3img', ext: 'png', label: 'Wardrobe' },
+            'living-room': { count: 25, prefix: 'line4img', ext: 'png', label: 'Modern Living Room' }
+        };
+
+        // Populate Gallery
+        let allItems = [];
+        Object.keys(categories).forEach(cat => {
+            const data = categories[cat];
+            for(let i=1; i<=data.count; i++) {
+                const card = document.createElement('div');
+                card.className = `gallery-card reveal fade-bottom`;
+                card.setAttribute('data-category', cat);
+                card.innerHTML = `
+                    <div class="img-box"><img src="${data.prefix}${i}.${data.ext}" alt="${data.label}"></div>
+                    <h3>${data.label} #${i}</h3>
+                `;
+                grid.appendChild(card);
+                allItems.push(card);
+            }
+        });
+
+        function updateVisibility() {
+            const checkboxes = document.querySelectorAll('.cat-filter');
+            const activeFilters = Array.from(checkboxes).filter(i => i.checked).map(i => i.value);
+            
+            let visibleCount = 0;
+            allItems.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                const matchesFilter = activeFilters.length === 0 || activeFilters.includes(cardCat);
+                
+                if (matchesFilter) {
+                    visibleCount++;
+                    if (visibleCount <= currentLimit) {
+                        card.classList.remove('hidden', 'page-hidden');
+                    } else {
+                        card.classList.add('page-hidden');
+                        card.classList.remove('hidden');
+                    }
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Hide/Show Load More button
+            const totalMatching = allItems.filter(card => {
+                const cardCat = card.getAttribute('data-category');
+                return activeFilters.length === 0 || activeFilters.includes(cardCat);
+            }).length;
+
+            if (currentLimit >= totalMatching) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-block';
+            }
+        }
+
+        loadMoreBtn.addEventListener('click', () => {
+            currentLimit += 20;
+            updateVisibility();
+        });
+
+        // Filtering Logic for Buttons
+        document.querySelectorAll('.cat-filter').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const label = e.target.closest('.filter-item');
+                if(e.target.checked) label.classList.add('active');
+                else label.classList.remove('active');
+                
+                currentLimit = 20; // Reset limit on filter change
+                updateVisibility();
+            });
+        });
+
+        // Initial call
+        updateVisibility();
+
+        // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.main-nav');
-
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        // Dropdown Click Toggle Logic (Desktop & Mobile)
+        // Dropdown Toggle
         const dropdowns = document.querySelectorAll('.dropdown');
-        
         dropdowns.forEach(dropdown => {
             const toggle = dropdown.querySelector('.dropdown-toggle');
             toggle.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                
-                // Close other open dropdowns
-                dropdowns.forEach(other => {
-                    if (other !== dropdown) other.classList.remove('open');
-                });
-                
+                dropdowns.forEach(other => { if (other !== dropdown) other.classList.remove('open'); });
                 dropdown.classList.toggle('open');
             });
         });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.dropdown')) {
-                dropdowns.forEach(dropdown => {
-                    dropdown.classList.remove('open');
-                });
-            }
-        });
-
-        // FAQ Toggle Logic
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.faq-icon').textContent = '+';
-                });
-                if (!isActive) {
-                    item.classList.add('active');
-                    item.querySelector('.faq-icon').textContent = '-';
-                }
+        // Mobile Filter Toggle Logic
+        const filterToggle = document.getElementById('mobile-filter-toggle');
+        const filterOptions = document.getElementById('filter-options');
+        if(filterToggle) {
+            filterToggle.addEventListener('click', () => {
+                filterOptions.classList.toggle('active');
+                const arrow = filterToggle.querySelector('.arrow');
+                arrow.textContent = filterOptions.classList.contains('active') ? '▲' : '▼';
             });
-        });
+        }
 
-        // Scroll Reveal Logic
+        // Scroll Reveal
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 150) {
+                if (elementTop < windowHeight - 100) {
                     reveals[i].classList.add("active");
                 }
             }
@@ -426,10 +539,6 @@
     </script>
 </body>
 </html>
-
-
-
-
 
 
 
