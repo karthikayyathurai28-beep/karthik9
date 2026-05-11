@@ -1,23 +1,88 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPC Doors | Trichy Wood Plast</title>
+    <title>TV Units | Our Works | Trichy Wood Plast</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .inner-hero {
-            width: 100%;
-            position: relative;
-            background: #fff;
-            overflow: hidden;
+        .work-page-header {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: #fdfdfd;
         }
-        .hero-img-full {
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 40px 0 80px;
+        }
+        .work-card {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+        .work-card img {
             width: 100%;
-            height: auto;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .work-category {
+            color: #2a3a6a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
             display: block;
+        }
+        .work-title {
+            font-size: 1.25rem;
+            color: #222;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .work-author {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .work-summary {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        .btn-keep-reading {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .btn-keep-reading:hover {
+            background: #2a3a6a;
+        }
+        @media (max-width: 992px) {
+            .work-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .work-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -61,7 +126,7 @@
                         <a href="index.html" class="home-icon-btn"><img src="https://img.icons8.com/material-rounded/20/ffffff/home.png" alt="Home"></a>
                         <a href="our-doors.html" class="nav-link-inline">OUR DOORS</a>
                         <div class="dropdown">
-                            <a href="#" class="nav-link-inline dropdown-toggle active">OUR PRODUCTS</a>
+                            <a href="#" class="nav-link-inline dropdown-toggle">OUR PRODUCTS</a>
                             <ul class="dropdown-menu">
                                 <li><a href="abs-doors.html">ABS DOORS</a></li>
                                 <li><a href="abs-design-doors.html">ABS DESIGN DOORS</a></li>
@@ -205,99 +270,103 @@
     </header>
 
     <main>
-        <section class="inner-hero">
-            <img src="wpc doors hero.png" alt="WPC Doors Hero" class="hero-img-full">
+        <section class="work-page-header">
+            <div class="container">
+                <h6 class="work-category">Portfolio</h6>
+                <h1 class="welcome-title">Premium TV Unit Designs</h1>
+            </div>
         </section>
 
-        <section class="product-showcase reveal fade-bottom">
+        <section class="work-content">
             <div class="container">
-                <h2 class="product-intro-title">WPC DOORS</h2>
-                <p class="product-intro-p">
-                    Experience the perfect blend of wood and polymer with our WPC Doors. Engineered for extreme durability and 100% resistance to moisture, termites, and rot, these doors are the ideal choice for sustainable and long-lasting interior solutions.
-                </p>
-
-                <div class="showcase-grid">
-                    <!-- Door 1 -->
-                    <div class="showcase-card">
-                        <img src="ooo1.jpg" alt="WPC 1">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>WPC Solid Panel</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
-                        </div>
+                <div class="work-grid">
+                    <!-- Card 1 -->
+                    <div class="work-card reveal fade-bottom">
+                        <img src="line1img1.png" alt="TV Unit Design">
+                        <span class="work-category">TV UNIT DESIGN IDEAS</span>
+                        <h2 class="work-title">Trendy TV Unit Design Ideas That Balance Style and Function</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">Discover how to transform your living room with our contemporary TV unit designs that offer both storage and aesthetic appeal.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
                     </div>
-
-                    <!-- Door 2 -->
-                    <div class="showcase-card">
-                        <img src="ooo2.jpg" alt="WPC 2">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>WPC Textured Teak</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
-                        </div>
+                    <!-- Card 2 -->
+                    <div class="work-card reveal fade-bottom" style="transition-delay: 0.1s;">
+                        <img src="line1img2.png" alt="TV Unit Design">
+                        <span class="work-category">MODERN INTERIORS</span>
+                        <h2 class="work-title">Best TV Unit Furniture Design Ideas in 2024</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">Exploring the latest trends in entertainment units, from wall-mounted floating shelves to massive floor-to-ceiling cabinets.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
                     </div>
-
-                    <!-- Door 3 -->
-                    <div class="showcase-card">
-                        <img src="ooo3.jpg" alt="WPC 3">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>WPC Classic Walnut</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
-                        </div>
+                    <!-- Card 3 -->
+                    <div class="work-card reveal fade-bottom" style="transition-delay: 0.2s;">
+                        <img src="line1img3.png" alt="TV Unit Design">
+                        <span class="work-category">LUXURY LIVING</span>
+                        <h2 class="work-title">Top 7 TV Unit Designs That Will Upgrade Indian Homes in 2024</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">A curated list of our most popular TV unit projects that have redefined luxury living for our esteemed clients.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
                     </div>
-
-                    <!-- Door 4 -->
-                    <div class="showcase-card">
-                        <img src="ooo4.jpg" alt="WPC 4">
-                        <div class="showcase-overlay">
-                            <div class="showcase-info">
-                                <h3>WPC Executive Grey</h3>
-                            </div>
-                            <div class="plus-icon">+</div>
-                        </div>
+                    <!-- Card 4 -->
+                    <div class="work-card reveal fade-bottom">
+                        <img src="line1img4.png" alt="TV Unit Design">
+                        <span class="work-category">TV UNIT IDEAS</span>
+                        <h2 class="work-title">Maximizing Space with Multi-functional TV Units</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">Learn how to combine your bookshelf, display unit, and TV stand into one cohesive and space-saving piece of furniture.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="work-card reveal fade-bottom" style="transition-delay: 0.1s;">
+                        <img src="line1img5.png" alt="TV Unit Design">
+                        <span class="work-category">MINIMALIST DESIGN</span>
+                        <h2 class="work-title">Minimalist TV Units for a Clutter-free Home</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">Sometimes less is more. Explore our range of minimalist TV units that focus on clean lines and simple textures.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="work-card reveal fade-bottom" style="transition-delay: 0.2s;">
+                        <img src="line1img6.png" alt="TV Unit Design">
+                        <span class="work-category">CUSTOM FURNITURE</span>
+                        <h2 class="work-title">10 Efficient Small TV Unit Ideas to Maximise Your Space</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">Don't let limited space stop you from having a great entertainment setup. Here are 10 ideas for compact homes.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="work-card reveal fade-bottom">
+                        <img src="line1img7.png" alt="TV Unit Design">
+                        <span class="work-category">PREMIUM DESIGNS</span>
+                        <h2 class="work-title">High-End TV Unit Designs for Modern Apartments</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">Explore our premium collection of TV units designed specifically for high-end modern apartments and villas.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
+                    </div>
+                    <!-- Card 8 (Duplicate for Grid) -->
+                    <div class="work-card reveal fade-bottom" style="transition-delay: 0.1s;">
+                        <img src="line1img1.png" alt="TV Unit Design">
+                        <span class="work-category">ELITE INTERIORS</span>
+                        <h2 class="work-title">Customized Entertainment Units for Your Dream Home</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">We specialize in creating bespoke entertainment units that match your specific requirements and home theme.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
+                    </div>
+                    <!-- Card 9 (Duplicate for Grid) -->
+                    <div class="work-card reveal fade-bottom" style="transition-delay: 0.2s;">
+                        <img src="line1img2.png" alt="TV Unit Design">
+                        <span class="work-category">SMART SOLUTIONS</span>
+                        <h2 class="work-title">Smart Storage Solutions Integrated into TV Units</h2>
+                        <span class="work-author">by TRICHY WOOD PLAST</span>
+                        <p class="work-summary">Functional furniture is the future. Our TV units come with hidden storage and smart cable management features.</p>
+                        <a href="#" class="btn-keep-reading">KEEP READING</a>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="product-details-content reveal fade-bottom">
-            <div class="container">
-                <h2>Trichy Wood Plast is a Leading Manufacturer of WPC Doors</h2>
-                <p>
-                    Trichy Wood Plast is a renowned WPC Doors manufacturer, offering a wide selection of premium Wood Polymer Composite doors for residential and commercial use. With over 15+ years of experience in this industry, our products are known for their high-grade quality and craftsmanship. Trichy Wood Plast is dedicated to providing durable, secure, and stylish WPC doors that can enhance any home or business. Whether you're looking for a common entry door or a custom-designed one, Trichy Wood Plast has the perfect solution for you.
-                </p>
-
-                <h3>We Promise to Meet Your Needs</h3>
-                <p>
-                    At Trichy Wood Plast, we understand that you have specific requirements for your WPC doors. That's why we attempt to provide you with the highest quality product at competitive prices. We offer a wide range of alternatives to meet your needs, from contemporary to traditional designs, from modern colors to classic looks.
-                </p>
-                <p>
-                    Our experienced professionals can help you in selecting the best door for your project. With years of experience in the WPC door industry, we can help you get the exact product that meets your needs and budget.
-                </p>
-                <p>
-                    We stand behind our products with our 100% customer satisfaction guarantee. Our staff is focused on providing excellent customer service and timely delivery. We look forward to offering you the perfect WPC door solution.
-                </p>
-
-                <h3>Choose your Desired Design & Color, and Rest is on us</h3>
-                <p>
-                    We offer an extensive range of WPC door designs and colors. You have a huge variety to choose from a range of colors & designs. Once you have chosen your desired design and color, our team will take proper care of the rest. Our expert technicians will take precise measurements and make sure that your door fits perfectly in its place.
-                </p>
-                <p>
-                    Sustainability is at the core of our manufacturing process. Our WPC doors are designed with environmental responsibility in mind, utilizing recyclable materials and processes that minimize waste. By choosing our WPC solutions, you are not only investing in a premium product but also contributing to a greener future. We believe that modern construction should go hand-in-hand with ecological preservation.
-                </p>
-                <p>
-                    Beyond the initial installation, our doors provide exceptional long-term value. Traditional wooden doors often require regular sanding, painting, and chemical treatments to prevent decay. Our WPC doors, however, remain pristine for decades with almost zero maintenance. This durability translates to significant cost savings over time, making them a smart financial investment for any property owner.
-                </p>
-                <p>Experience the difference with premium WPC Doors from Trichy Wood Plast and let us help you create a stylish and secure space.</p>
-            </div>
-        </section>
     </main>
 
-        <footer class="main-footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-col about-col">
@@ -364,47 +433,25 @@
             navMenu.classList.toggle('active');
         });
 
-        // Dropdown Click Toggle Logic (Desktop & Mobile)
         const dropdowns = document.querySelectorAll('.dropdown');
-        
         dropdowns.forEach(dropdown => {
             const toggle = dropdown.querySelector('.dropdown-toggle');
             toggle.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                
-                // Close other open dropdowns
                 dropdowns.forEach(other => {
                     if (other !== dropdown) other.classList.remove('open');
                 });
-                
                 dropdown.classList.toggle('open');
             });
         });
 
-        // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.dropdown')) {
                 dropdowns.forEach(dropdown => {
                     dropdown.classList.remove('open');
                 });
             }
-        });
-
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.faq-icon').textContent = '+';
-                });
-                if (!isActive) {
-                    item.classList.add('active');
-                    item.querySelector('.faq-icon').textContent = '-';
-                }
-            });
         });
 
         function reveal() {
@@ -422,6 +469,3 @@
     </script>
 </body>
 </html>
-
-
-
