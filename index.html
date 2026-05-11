@@ -45,11 +45,35 @@
                     </a>
                     <div class="header-left-icons">
                         <a href="index.html" class="home-icon-btn"><img src="https://img.icons8.com/material-rounded/20/ffffff/home.png" alt="Home"></a>
+                        <a href="our-doors.html" class="nav-link-inline">OUR DOORS</a>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link-inline dropdown-toggle">OUR PRODUCTS</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="abs-doors.html">ABS DOORS</a></li>
+                                <li><a href="abs-design-doors.html">ABS DESIGN DOORS</a></li>
+                                <li><a href="wpc-doors.html">WPC DOORS</a></li>
+                                <li><a href="pvc-moulded-doors.html">PVC MOULDED DOORS</a></li>
+                                <li><a href="pvc-solid-doors.html">PVC SOLID DOORS</a></li>
+                            </ul>
+                        </div>
+                        <a href="sustainability.html" class="nav-link-inline">SUSTAINABILITY</a>
                     </div>
                 </div>
                 <nav class="main-nav">
                     <ul>
                         <li class="nav-item mobile-home"><a href="index.html">Home</a></li>
+                        <li class="nav-item"><a href="our-doors.html">Our Doors</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown-toggle">Our Products</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="abs-doors.html">ABS Doors</a></li>
+                                <li><a href="abs-design-doors.html">ABS Design Doors</a></li>
+                                <li><a href="wpc-doors.html">WPC Doors</a></li>
+                                <li><a href="pvc-moulded-doors.html">PVC Moulded Doors</a></li>
+                                <li><a href="pvc-solid-doors.html">PVC Solid Doors</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="sustainability.html">Sustainability</a></li>
                         <li class="search-nav"><a href="#"><img src="https://img.icons8.com/ios/24/000000/search--v1.png" alt="Search"></a></li>
                     </ul>
                 </nav>
@@ -263,7 +287,7 @@
                         <h6 class="sus-subtitle">SUSTAINABILITY &</h6>
                         <h2 class="sus-title">ENVIRONMENT</h2>
                         <p>The Two types of polymers most frequently used worldwide are Polyvinyl Chloride or uPVC, Wood Plastic Composite, or WPC. uPVC and WPC are utilised widely in a variety of common applications because of their adaptability. Compared to conventional thermoplastics, both of these materials rely on much less oil. For a very economical use of raw resources, it is also very strong and energy-efficient across a range of applications.</p>
-                        <a href="#" class="btn-read-more-sus">READ MORE</a>
+                        <a href="sustainability.html" class="btn-read-more-sus">READ MORE</a>
                     </div>
                     <div class="sus-right">
                         <img src="sus.png" alt="Sustainability">
@@ -659,6 +683,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
+                        <li><a href="our-doors.html">Our Doors</a></li>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Catalogue</a></li>
                         <li><a href="#">News & Media</a></li>
@@ -711,6 +736,17 @@
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        // Mobile Dropdown Toggle
+        const dropdownToggles = document.querySelectorAll('.main-nav .dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
         });
 
         let currentSlide = 0;
