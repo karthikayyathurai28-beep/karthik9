@@ -1753,6 +1753,8 @@ body {
         display: block !important;
         visibility: visible !important;
         height: auto !important;
+        max-height: 350px !important; /* Limit height for scrolling */
+        overflow-y: auto !important; /* Enable internal scroll */
         padding: 10px 0 20px 20px !important;
     }
     .dropdown-menu li {
@@ -2154,6 +2156,8 @@ body {
         display: block !important;
         visibility: visible !important;
         height: auto !important;
+        max-height: 350px !important; /* Limit height for scrolling */
+        overflow-y: auto !important; /* Enable internal scroll */
         padding: 10px 20px !important;
         left: auto !important;
         transform: none !important;
