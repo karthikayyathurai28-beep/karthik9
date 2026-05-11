@@ -1625,3 +1625,434 @@ body {
 
 .fade-right { transform: translateX(50px); }
 .fade-right.active { transform: translateX(0); }
+
+/* New Inline Menu Styles */
+.header-left-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+}
+
+.nav-link-inline {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-link-inline:hover, .nav-link-inline.active {
+    color: #0099db;
+}
+
+.home-icon-btn img {
+    filter: brightness(0) saturate(100%); /* Make home icon black to match text */
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation Visibility Controls */
+.main-nav .nav-item {
+    display: none; /* Hide standard nav items on desktop, they are in header-left-icons instead */
+}
+
+@media (max-width: 768px) {
+    .header-left-icons { 
+        display: none !important; 
+    }
+    .main-nav .nav-item {
+        display: block; /* Show in mobile hamburger menu */
+    }
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-toggle::after {
+    content: '▾';
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 10px 0;
+    list-style: none;
+    border-top: 2px solid #0099db;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #f8f9fa;
+    color: #0099db;
+}
+
+/* Mobile Dropdown Adjustments */
+@media (max-width: 768px) {
+    .dropdown {
+        display: block;
+        width: 100%;
+    }
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: #fdfdfd;
+        display: none; /* Toggle with JS on mobile */
+        padding-left: 20px;
+        border-top: none;
+    }
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    .dropdown-toggle {
+        padding: 15px 0;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+/* Product Grid Layout (as per screenshot) */
+.product-showcase {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.product-intro-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.product-intro-p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.showcase-card {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.showcase-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.showcase-card:hover img {
+    transform: scale(1.1);
+}
+
+.showcase-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.showcase-info h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.plus-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: background 0.3s;
+}
+
+.showcase-card:hover .plus-icon {
+    background: #0099db;
+}
+
+@media (max-width: 992px) {
+    .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .showcase-grid { grid-template-columns: 1fr; }
+    .showcase-card { height: 250px; }
+}
+
+/* Product Detailed Info Section */
+.product-details-content {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.product-details-content h2 {
+    font-size: 1.2rem;
+    color: #333; /* Exact match with top intro title */
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.product-details-content h3 {
+    font-size: 1.0rem;
+    color: #333;
+    margin: 30px 0 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.product-details-content p {
+    font-size: 0.9rem;
+    color: #666; /* Exact match with top intro paragraph */
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Sustainability Page Styles */
+.sustainability-hero {
+    width: 100%;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+}
+
+.sustainability-content {
+    padding: 80px 0;
+    background-color: #f6f8f0; /* Light cream/greenish from screenshot */
+}
+
+.sus-boxed-title {
+    display: block;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.sus-intro-text {
+    max-width: 900px;
+}
+
+.sus-intro-text p {
+    font-size: 1.0rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* Two column layout for sustainability section */
+.sus-two-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.sus-text-col {
+    flex: 1.2;
+}
+
+.sus-image-col {
+    flex: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sus-image-col img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .sus-two-col {
+        flex-direction: column;
+    }
+    .sus-image-col {
+        width: 100%;
+    }
+}
+
+/* Full width paragraphs below the image */
+.sus-full-text {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.sus-full-text p {
+    font-size: 1.0rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.pillars-section {
+    padding: 60px 0 100px;
+    background-color: #fff;
+}
+
+.pillars-title {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.pillars-intro {
+    font-size: 1.0rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 1000px;
+}
+
+.pillars-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pillar-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px);
+}
+
+.pillar-number {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8rem;
+    font-weight: 900;
+    color: #f0f0f0;
+    z-index: 1;
+    line-height: 1;
+}
+
+.pillar-icon {
+    position: relative;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.pillar-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.pillar-info {
+    position: relative;
+    z-index: 2;
+    border-left: 1px solid #ddd;
+    padding-left: 40px;
+}
+
+.pillar-info h4 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.pillar-info p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .pillar-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 30px;
+    }
+    .pillar-info {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+    }
+    .pillar-number {
+        font-size: 5rem;
+        left: 10px;
+    }
+}
+
